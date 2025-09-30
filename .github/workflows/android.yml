@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -19,6 +20,9 @@ jobs:
 
       - name: Install NativeScript CLI
         run: npm install -g nativescript
+
+      - name: Verify NativeScript
+        run: ns --version
 
       - name: Install project dependencies
         run: npm install
