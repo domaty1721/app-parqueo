@@ -31,7 +31,7 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      # 5. Configurar Android SDK con paquetes correctos
+      # 5. Configurar Android SDK con paquetes necesarios
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
         with:
