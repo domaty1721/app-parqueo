@@ -1,0 +1,2 @@
+<!-- app-root.xml -->
+<Frame xmlns="http://schemas.nativescript.org/tns.xsd" defaultPage="components/login-page" />

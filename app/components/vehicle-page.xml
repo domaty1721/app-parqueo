@@ -1,0 +1,12 @@
+<!-- components/vehicle-page.xml -->
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="Registro de Vehículos" />
+  <StackLayout padding="20" spacing="10">
+    <Label text="Placa:" />
+    <TextField id="plate" hint="Ingrese la placa" />
+    <Label text="Tipo de vehículo:" />
+    <TextField id="type" hint="Ej: Carro, Moto" />
+    <Button text="Registrar vehículo" tap="onRegister" />
+    <Label id="message" text="" textWrap="true" />
+  </StackLayout>
+</Page>

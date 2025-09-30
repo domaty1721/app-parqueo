@@ -1,0 +1,11 @@
+<!-- components/login-page.xml -->
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+  <ActionBar title="Inicio de Sesión" />
+  <StackLayout padding="20" spacing="10">
+    <Label text="Inicio de Sesión" class="h1" textAlignment="center" />
+    <TextField id="username" hint="Usuario" />
+    <TextField id="password" hint="Contraseña" secure="true" />
+    <Button text="Ingresar" tap="onLogin" />
+    <Label id="message" text="" textAlignment="center" textWrap="true" />
+  </StackLayout>
+</Page>
