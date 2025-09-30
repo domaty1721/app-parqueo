@@ -34,8 +34,8 @@ jobs:
           accept-android-sdk-licenses: true
           packages: |
             platform-tools
-            platforms;android-33
-            build-tools;33.0.2
+            "platforms;android-33"
+            "build-tools;33.0.2"
 
       - name: Install project dependencies
         run: npm install
