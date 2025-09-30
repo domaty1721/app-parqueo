@@ -10,49 +10,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Clonar el repositorio
+      # Clonar el repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Instalar Node.js
+      # Configurar Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # 3. Instalar NativeScript CLI
+      # Instalar NativeScript CLI
       - name: Install NativeScript CLI
-        run: |
-          npm install -g nativescript
-          echo "$HOME/.npm-global/bin" >> $GITHUB_PATH
-      - name: Verify NativeScript CLI
-        run: ns --version
+        run: npm install -g nativescript
 
-      # 4. Instalar dependencias del proyecto
-      - name: Install project dependencies
-        run: npm install
-
-      # 5. Configurar JDK
+      # Configurar JDK
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
-          java-version: '11'
+          distribution: temurin
+          java-version: 11
 
-      # 6. Configurar Android SDK
+      # Configurar Android SDK
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
         with:
-          api-level: 33
-          build-tools: 33.0.2
-          cmake: false
-          ndk: false
+          cmdline-tools-version: "9.0.0"
+          packages: |
+            platform-tools
+            platforms;android-33
+            build-tools;33.0.2
+          accept-android-sdk-licenses: true
 
-      # 7. Build APK
+      # Instalar dependencias del proyecto
+      - name: Install project dependencies
+        run: npm install
+
+      # Construir APK de NativeScript
       - name: Build APK
         run: ns build android --debug
 
-      # 8. Subir APK como artifact
+      # Subir APK como artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
